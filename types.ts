@@ -2,22 +2,42 @@
 export enum AppStep {
   HOME = 'HOME',
   CLIENT_INFO = 'CLIENT_INFO',
+  CLIENT_REGISTRATION = 'CLIENT_REGISTRATION',
   DIAGNOSTIC = 'DIAGNOSTIC',
   REVIEW = 'REVIEW',
   REPORT = 'REPORT'
 }
 
+export type DashboardView = 
+  | 'DASHBOARD_MAIN'
+  | 'DIAG_LIST'
+  | 'CLIENT_LIST'
+  | 'CLIENT_PROJECTS'
+  | 'CRM_PIPELINE'
+  | 'CRM_PROPOSALS'
+  | 'FINANCEIRO'
+  | 'KPIS'
+  | 'USERS'
+  | 'HELP'
+  | 'MANUALS';
+
 export interface Question {
   id: string;
   areaId: string;
   enunciado: string;
+  label: string; // Novo campo para o eixo do gráfico radar
   opcoes: {
-    A: string; // 0
-    B: string; // 33
-    C: string; // 66
-    D: string; // 100
+    A: string;
+    B: string;
+    C: string;
+    D: string;
   };
-  sugestaoPadrao: string;
+  sugestoes: {
+    A: string;
+    B: string;
+    C: string;
+    D: string;
+  };
 }
 
 export interface Area {
@@ -50,6 +70,18 @@ export interface ClientInfo {
   segmento: string;
   quantidadeFuncionarios: string;
   estruturaOrganizacional: string;
+  logradouro?: string;
+  numero?: string;
+  bairro?: string;
+  cidade?: string;
+  uf?: string;
+  cep?: string;
+  telefoneFixo?: string;
+  site?: string;
+  instagram?: string;
+  linkedin?: string;
+  dataFundacao?: string;
+  inscricaoEstadual?: string;
 }
 
 export interface ClientDB {
@@ -61,6 +93,24 @@ export interface ClientDB {
   whatsapp: string;
   responsavel: string;
   created_at: string;
+  logradouro?: string;
+  numero?: string;
+  bairro?: string;
+  cidade?: string;
+  uf?: string;
+  cep?: string;
+  telefone_fixo?: string;
+  site?: string;
+  instagram?: string;
+  linkedin?: string;
+  data_fundacao?: string;
+  inscricao_estadual?: string;
+  faturamento_mensal?: string;
+  faturamento_anual?: string;
+  quantidade_funcionarios?: string;
+  segmento?: string;
+  nicho?: string;
+  estrutura_organizacional?: string;
 }
 
 export interface LeadDB {

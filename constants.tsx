@@ -17,421 +17,101 @@ export const AREAS: Area[] = [
 ];
 
 export const QUESTIONS: Question[] = [
-  // 1. Societário & Governança
-  {
-    id: '1.1', areaId: 'societario',
-    enunciado: 'O Contrato Social reflete a realidade atual (sócios, capital, endereço) e protege a operação?',
-    opcoes: {
-      A: 'Contrato padrão, desatualizado ou informal.',
-      B: 'Contrato existe mas tem divergências leves com a realidade.',
-      C: 'Contrato atualizado, mas sem cláusulas profundas de proteção.',
-      D: 'Contrato atualizado com cláusulas específicas de proteção e valuation.'
-    },
-    sugestaoPadrao: 'Revisar e atualizar o Contrato Social com assessoria jurídica especializada.'
-  },
-  {
-    id: '1.2', areaId: 'societario',
-    enunciado: 'Existem regras assinadas para entrada/saída de sócios, valuation e herança?',
-    opcoes: {
-      A: 'Não existe. Se um sócio sair, vira briga.',
-      B: 'Regras verbais ("de boca"), sem documento assinado.',
-      C: 'Existe um esboço ou minuta não registrada.',
-      D: 'Acordo de Acionistas/Quotistas assinado e registrado juridicamente.'
-    },
-    sugestaoPadrao: 'Elaborar e registrar um Acordo de Quotistas para definir regras de sucessão e saída.'
-  },
-  {
-    id: '1.3', areaId: 'societario',
-    enunciado: 'Existe uma rotina mensal formal de prestação de contas entre os sócios?',
-    opcoes: {
-      A: 'Conversas de corredor ou apenas quando surge problema.',
-      B: 'Reuniões esporádicas sem ata ou pauta definida.',
-      C: 'Reunião mensal existe, mas sem análise profunda de números.',
-      D: 'Reunião mensal agendada, com Ata, Pauta e DRE apresentado.'
-    },
-    sugestaoPadrao: 'Instituir reuniões mensais de conselho com pauta fixa e análise de indicadores financeiros.'
-  },
-  {
-    id: '1.4', areaId: 'societario',
-    enunciado: 'Existe estrutura de proteção patrimonial (Holding) ou separação de riscos?',
-    opcoes: {
-      A: 'Bens dos sócios estão expostos no nome da Pessoa Física.',
-      B: 'Alguns bens separados, mas com mistura patrimonial.',
-      C: 'Estrutura em andamento / Planejamento Sucessório iniciado.',
-      D: 'Estrutura de Holding ou blindagem jurídica constituída e ativa.'
-    },
-    sugestaoPadrao: 'Avaliar a viabilidade de uma Holding Patrimonial para proteção e planejamento sucessório.'
-  },
-  {
-    id: '1.5', areaId: 'societario',
-    enunciado: 'As funções de cada sócio na operação estão claras e não se sobrepõem?',
-    opcoes: {
-      A: 'Sócios "batem cabeça", todos mandam em tudo.',
-      B: 'Divisão informal, mas as vezes um invade a área do outro.',
-      C: 'Divisão clara no papel, mas na prática há interferências.',
-      D: 'Organograma respeitado: cada sócio tem sua diretoria e autonomia.'
-    },
-    sugestaoPadrao: 'Definir organograma diretivo e matriz de responsabilidades (RACI) entre os sócios.'
-  },
+  // 1. SOCIETÁRIO & GOVERNANÇA (6 Perguntas)
+  { id: '1.1', areaId: 'societario', label: 'Formalização', enunciado: 'O Contrato Social reflete a realidade atual (sócios, capital, endereço)?', opcoes: { A: 'Informal/Desatualizado', B: 'Divergências leves', C: 'Atualizado, sem proteção', D: 'Atualizado com proteção' }, sugestoes: { A: 'Revisar Contrato Social imediatamente.', B: 'Ajustar divergências.', C: 'Incluir proteção patrimonial.', D: 'Manter revisão anual.' } },
+  { id: '1.2', areaId: 'societario', label: 'Quotas', enunciado: 'Existem regras para entrada/saída de sócios e herança?', opcoes: { A: 'Não existe', B: 'Regras verbais', C: 'Minuta não registrada', D: 'Acordo assinado/registrado' }, sugestoes: { A: 'Elaborar Acordo de Quotistas.', B: 'Formalizar regras verbais.', C: 'Registrar minuta.', D: 'Auditar cumprimento.' } },
+  { id: '1.3', areaId: 'societario', label: 'Governança', enunciado: 'Existe rotina formal de prestação de contas?', opcoes: { A: 'Sem rotina', B: 'Conversas esporádicas', C: 'Reunião mensal simples', D: 'Reunião com Pauta/Ata/DRE' }, sugestoes: { A: 'Instituir reuniões mensais.', B: 'Padronizar reuniões.', C: 'Aprofundar análise de números.', D: 'Foco estratégico.' } },
+  { id: '1.4', areaId: 'societario', label: 'Separação Finanças', enunciado: 'Há separação total entre contas PF e PJ?', opcoes: { A: 'Totalmente misturado', B: 'Mistura parcial', C: 'Maioria separado', D: 'Separação total e absoluta' }, sugestoes: { A: 'Eliminar pagamentos PF na PJ.', B: 'Reduzir transferências aleatórias.', C: 'Refinar controles.', D: 'Manter disciplina.' } },
+  { id: '1.5', areaId: 'societario', label: 'Pró-Labore', enunciado: 'O pró-labore dos sócios é fixo e compatível com o mercado?', opcoes: { A: 'Retira o que sobra', B: 'Varia muito todo mês', C: 'Fixo mas inadequado', D: 'Fixo e planejado' }, sugestoes: { A: 'Definir Pró-Labore fixo.', B: 'Estabilizar retiradas.', C: 'Ajustar ao mercado.', D: 'Manter planejamento.' } },
+  { id: '1.6', areaId: 'societario', label: 'Distribuição Lucros', enunciado: 'Há critérios claros para distribuição de dividendos?', opcoes: { A: 'Sem critério', B: 'Critério verbal', C: 'Regra em contrato', D: 'Regra clara com reserva legal' }, sugestoes: { A: 'Definir política de dividendos.', B: 'Documentar regras de distribuição.', C: 'Criar reserva de lucro.', D: 'Otimizar tributação.' } },
 
-  // 2. Tecnologia & Inovação
-  {
-    id: '2.1', areaId: 'tecnologia',
-    enunciado: 'O sistema de gestão (ERP) centraliza a operação ou há dependência de planilhas?',
-    opcoes: {
-      A: 'Vários controles paralelos, papel e redigitação manual.',
-      B: 'Sistema existe mas é subutilizado (usa-se muito Excel fora).',
-      C: 'Sistema centraliza 80% da operação.',
-      D: 'ERP integrado (Vendas, Estoque, Financeiro) em tempo real (100%).'
-    },
-    sugestaoPadrao: 'Migrar controles paralelos para o ERP e treinar a equipe para uso integral das funcionalidades.'
-  },
-  {
-    id: '2.2', areaId: 'tecnologia',
-    enunciado: 'Como é realizado o backup dos dados e a proteção contra ataques?',
-    opcoes: {
-      A: 'Backup manual em HD externo/Pen drive ou não existe.',
-      B: 'Backup em nuvem esporádico (ex: Google Drive pessoal).',
-      C: 'Backup automático, mas sem teste de restauração.',
-      D: 'Backup em nuvem automatizado, criptografado e testado regularmente.'
-    },
-    sugestaoPadrao: 'Implementar solução de backup em nuvem profissional com redundância e testes de restore.'
-  },
-  {
-    id: '2.3', areaId: 'tecnologia',
-    enunciado: 'Tarefas repetitivas (boletos, notas, e-mails) são feitas por robôs/sistemas?',
-    opcoes: {
-      A: 'Processos manuais, lentos e sujeitos a erro humano.',
-      B: 'Algumas automações isoladas, mas muita intervenção manual.',
-      C: 'Maioria automatizada, mas requer supervisão constante.',
-      D: 'Automação de fluxo de trabalho (Workflow) implementada ponta a ponta.'
-    },
-    sugestaoPadrao: 'Identificar gargalos manuais e implementar ferramentas de automação (RPA/n8n/Make).'
-  },
-  {
-    id: '2.4', areaId: 'tecnologia',
-    enunciado: 'A empresa utiliza novas tecnologias (IA, Dashboards) para ganhar competitividade?',
-    opcoes: {
-      A: 'Ignora tecnologia, opera processos como há 10 anos.',
-      B: 'Usa ferramentas básicas, mas sem integração inteligente.',
-      C: 'Começando a usar Dashboards para visualização de dados.',
-      D: 'Usa ferramentas de ponta e IA para análise preditiva e produtividade.'
-    },
-    sugestaoPadrao: 'Capacitar a equipe no uso de IA generativa e BI para suporte à tomada de decisão.'
-  },
-  {
-    id: '2.5', areaId: 'tecnologia',
-    enunciado: 'Os dados de clientes e funcionários estão tratados conforme a LGPD?',
-    opcoes: {
-      A: 'Nenhum controle de acesso, dados sensíveis expostos.',
-      B: 'Controle básico de senhas, mas sem política definida.',
-      C: 'Processos mapeados, mas adequação parcial.',
-      D: 'Processos 100% adequados à LGPD com controle de acesso rigoroso.'
-    },
-    sugestaoPadrao: 'Realizar diagnóstico de conformidade LGPD e implementar políticas de privacidade.'
-  },
+  // 2. TECNOLOGIA (6 Perguntas)
+  { id: '2.1', areaId: 'tecnologia', label: 'Sistemas', enunciado: 'O sistema de gestão (ERP) centraliza a operação?', opcoes: { A: 'Planilhas/Papel', B: 'ERP subutilizado', C: '80% centralizado', D: '100% Integrado' }, sugestoes: { A: 'Migrar para ERP corporativo.', B: 'Treinar equipe no ERP.', C: 'Eliminar Excel paralelo.', D: 'Usar BI do ERP.' } },
+  { id: '2.2', areaId: 'tecnologia', label: 'Suporte', enunciado: 'Como é feito o suporte e manutenção de TI?', opcoes: { A: 'Reativo/Sem suporte', B: 'Técnico informal', C: 'Empresa externa básica', D: 'SLA e suporte proativo' }, sugestoes: { A: 'Contratar suporte fixo.', B: 'Formalizar TI.', C: 'Auditar segurança.', D: 'Evoluir infra.' } },
+  { id: '2.3', areaId: 'tecnologia', label: 'Infraestrutura', enunciado: 'A infraestrutura de rede e hardware é adequada?', opcoes: { A: 'Obsoleta/Lenta', B: 'Funciona com falhas', C: 'Adequada, sem reserva', D: 'Moderna e redundante' }, sugestoes: { A: 'Renovar hardware crítico.', B: 'Ajustar rede wifi/cabo.', C: 'Ter hardware reserva.', D: 'Plano de renovação.' } },
+  { id: '2.4', areaId: 'tecnologia', label: 'Segurança e Backup', enunciado: 'Existem backups em nuvem e antivírus corporativo?', opcoes: { A: 'Não tem backup', B: 'Backup manual instável', C: 'Backup em nuvem OK', D: 'Cloud Backup e DR ativo' }, sugestoes: { A: 'Implementar backup nuvem.', B: 'Automatizar backup.', C: 'Testar restauração.', D: 'Auditar segurança.' } },
+  { id: '2.5', areaId: 'tecnologia', label: 'Automação', enunciado: 'Há uso de ferramentas de automação (bots, Zapier, IA)?', opcoes: { A: 'Tudo manual', B: 'Uso básico/pontual', C: 'Alguns fluxos auto', D: 'Cultura de automação' }, sugestoes: { A: 'Mapear tarefas repetitivas.', B: 'Testar Zapier/Make.', C: 'Implementar IA.', D: 'Escalar automação.' } },
+  { id: '2.6', areaId: 'tecnologia', label: 'Mobilidade', enunciado: 'A equipe consegue trabalhar remotamente com segurança?', opcoes: { A: 'Impossível', B: 'Apenas e-mail', C: 'Acesso via VPN/Cloud', D: 'Ecossistema 100% remoto' }, sugestoes: { A: 'Implementar nuvem corporativa.', B: 'Configurar VPN segura.', C: 'Migrar para ferramentas SaaS.', D: 'Políticas de Home Office.' } },
 
-  // 3. Comercial
-  {
-    id: '3.1', areaId: 'comercial',
-    enunciado: 'O preço de venda cobre custos e garante margem real de lucro?',
-    opcoes: {
-      A: 'Preço baseado no "chute" ou apenas copiando o concorrente.',
-      B: 'Cálculo simples (Custo x 2), sem análise de margem de contribuição.',
-      C: 'Precificação técnica, mas desatualizada.',
-      D: 'Precificação técnica com markup revisado e margem de contribuição clara.'
-    },
-    sugestaoPadrao: 'Revisar a planilha de precificação considerando impostos, custos fixos e margem desejada.'
-  },
-  {
-    id: '3.2', areaId: 'comercial',
-    enunciado: 'As metas são desdobradas (diárias/semanais) e visíveis para o time?',
-    opcoes: {
-      A: 'Meta existe apenas na cabeça do dono ou mensal global.',
-      B: 'Meta definida verbalmente, sem acompanhamento visual.',
-      C: 'Metas individuais definidas em planilha, cobradas semanalmente.',
-      D: 'Metas desdobradas acompanhadas em tempo real (Gestão à Vista).'
-    },
-    sugestaoPadrao: 'Implementar dashboard de gestão à vista com indicadores de performance (KPIs) diários.'
-  },
-  {
-    id: '3.3', areaId: 'comercial',
-    enunciado: 'Existe gestão do funil de vendas e taxa de conversão (CRM)?',
-    opcoes: {
-      A: 'Venda anotada em caderno/agenda. Sem histórico.',
-      B: 'Planilha de controle de clientes (Excel).',
-      C: 'CRM implantado mas subutilizado (apenas cadastro).',
-      D: 'CRM ativo com funil, motivos de perda e histórico de interações.'
-    },
-    sugestaoPadrao: 'Treinar o time comercial no uso do CRM e monitorar as taxas de conversão de cada etapa.'
-  },
-  {
-    id: '3.4', areaId: 'comercial',
-    enunciado: 'Existe um roteiro de vendas (Script, Objeções) padronizado?',
-    opcoes: {
-      A: 'Cada vendedor vende do seu jeito (Depende de talento individual).',
-      B: 'Existe um script verbal combinado, mas não documentado.',
-      C: 'Playbook escrito, mas a equipe não segue à risca.',
-      D: 'Playbook de Vendas treinado, auditado e executado por todos.'
-    },
-    sugestaoPadrao: 'Criar um Playbook de Vendas com scripts de abordagem e técnicas de contorno de objeções.'
-  },
-  {
-    id: '3.5', areaId: 'comercial',
-    enunciado: 'Como os clientes chegam na empresa (Canais de Aquisição)?',
-    opcoes: {
-      A: '100% Indicação / Boca a boca (Dependência total da rede atual).',
-      B: 'Indicação + Prospecção ativa eventual sem processo.',
-      C: 'Processo híbrido (Marketing Digital + Indicação) constante.',
-      D: 'Máquina de vendas previsível com múltiplos canais tracionando.'
-    },
-    sugestaoPadrao: 'Diversificar canais de aquisição para reduzir a dependência exclusiva de indicações.'
-  },
+  // 3. COMERCIAL (6 Perguntas)
+  { id: '3.1', areaId: 'comercial', label: 'Meta de Vendas', enunciado: 'Há metas claras e compartilhadas?', opcoes: { A: 'Sem metas', B: 'Metas informais', C: 'Meta escrita, sem acompanhamento', D: 'Metas monitoradas diariamente' }, sugestoes: { A: 'Criar plano de metas.', B: 'Formalizar metas anuais.', C: 'Monitorar KPIs semanais.', D: 'Gamificar atingimento.' } },
+  { id: '3.2', areaId: 'comercial', label: 'CRM', enunciado: 'O funil de vendas é gerido em software especializado?', opcoes: { A: 'Cabeça/Papel', B: 'Planilha bagunçada', C: 'CRM ativo mas incompleto', D: 'CRM 100% atualizado' }, sugestoes: { A: 'Contratar CRM imediatamente.', B: 'Treinar uso diário do CRM.', C: 'Ajustar etapas do funil.', D: 'Automação de prospecção.' } },
+  { id: '3.3', areaId: 'comercial', label: 'Precificação', enunciado: 'O preço é baseado em margem de contribuição?', opcoes: { A: 'Olhômetro/Mercado', B: 'Custo + Margem simples', C: 'Margem Contribuição OK', D: 'Pricing estratégico/BI' }, sugestoes: { A: 'Realizar cálculo de margem.', B: 'Revisar custos variáveis.', C: 'Análise de Break-Even.', D: 'Testes A/B de preço.' } },
+  { id: '3.4', areaId: 'comercial', label: 'Relatórios', enunciado: 'Há relatórios de conversão por vendedor?', opcoes: { A: 'Zero dados', B: 'Dados parciais', C: 'Relatórios mensais', D: 'Dashboards em tempo real' }, sugestoes: { A: 'Começar a medir conversão.', B: 'Implementar Dashboard.', C: 'Análise de CAC.', D: 'Previsão de vendas (Forecast).' } },
+  { id: '3.5', areaId: 'comercial', label: 'Indicadores', enunciado: 'Taxa de conversão e churn são monitorados?', opcoes: { A: 'Não sabe o que é', B: 'Mede esporadicamente', C: 'Mede mensalmente', D: 'Foco em melhoria contínua' }, sugestoes: { A: 'Definir KPIs comerciais.', B: 'Monitorar churn mensal.', C: 'Aumentar ticket médio.', D: 'Otimizar LTV.' } },
+  { id: '3.6', areaId: 'comercial', label: 'Prospecção', enunciado: 'Existe um processo ativo de geração de leads?', opcoes: { A: 'Indicação apenas', B: 'Tentativas aleatórias', C: 'Processo estruturado', D: 'Máquina de vendas ativa' }, sugestoes: { A: 'Iniciar prospecção ativa.', B: 'Definir ICP (Perfil ideal).', C: 'Contratar SDR.', D: 'Escalar canais de leads.' } },
 
-  // 4. Marketing
-  {
-    id: '4.1', areaId: 'marketing',
-    enunciado: 'A vitrine digital (Site, Redes, Google) transmite autoridade?',
-    opcoes: {
-      A: 'Não tem site ou redes sociais estão abandonadas/amadoras.',
-      B: 'Redes sociais ativas, mas sem estratégia visual definida.',
-      C: 'Presença digital bonita, mas converte pouco.',
-      D: 'Presença digital profissional, autoridade clara e focada em conversão.'
-    },
-    sugestaoPadrao: 'Revitalizar a identidade visual e otimizar o site para conversão de leads.'
-  },
-  {
-    id: '4.2', areaId: 'marketing',
-    enunciado: 'O marketing entrega oportunidades reais (MQL) para o comercial?',
-    opcoes: {
-      A: 'Só entrega "curiosos" ou métricas de vaidade (likes/seguidores).',
-      B: 'Leads chegam, mas muito frios ou desqualificados.',
-      C: 'Volume bom de leads, qualidade mediana.',
-      D: 'Entrega leads qualificados (MQL) prontos para abordagem comercial.'
-    },
-    sugestaoPadrao: 'Definir critérios de qualificação de leads (SLA) entre marketing e vendas.'
-  },
-  {
-    id: '4.3', areaId: 'marketing',
-    enunciado: 'A empresa sabe o Custo de Aquisição de Cliente (CAC)?',
-    opcoes: {
-      A: 'Não sabe quanto gasta para trazer um cliente novo.',
-      B: 'Sabe apenas o valor total investido em anúncios.',
-      C: 'Monitora o custo por lead (CPL), mas não o CAC final.',
-      D: 'Monitora CAC, ROI e LTV (Valor do tempo de vida) mensalmente.'
-    },
-    sugestaoPadrao: 'Implementar planilha de métricas para monitorar CAC e ROI por canal de aquisição.'
-  },
-  {
-    id: '4.4', areaId: 'marketing',
-    enunciado: 'Existem campanhas ativas para revender para a base atual (Farm)?',
-    opcoes: {
-      A: 'Foco 100% em cliente novo. Base antiga é esquecida.',
-      B: 'Ações pontuais (ex: Black Friday), sem recorrência.',
-      C: 'Campanhas estruturadas, mas manuais.',
-      D: 'Campanhas recorrentes e automatizadas de Cross-sell e Up-sell.'
-    },
-    sugestaoPadrao: 'Implementar régua de relacionamento pós-venda para aumentar o LTV da base atual.'
-  },
-  {
-    id: '4.5', areaId: 'marketing',
-    enunciado: 'A empresa utiliza Google Meu Negócio e avaliações a seu favor?',
-    opcoes: {
-      A: 'Perfil inexistente ou desatualizado.',
-      B: 'Perfil existe, mas poucas avaliações ou sem resposta.',
-      C: 'Perfil ativo, responde avaliações esporadicamente.',
-      D: 'Gestão ativa de reputação, incentivando avaliações 5 estrelas.'
-    },
-    sugestaoPadrao: 'Atualizar o Google Meu Negócio e criar campanha de incentivo a depoimentos de clientes.'
-  },
+  // 4. MARKETING (6 Perguntas)
+  { id: '4.1', areaId: 'marketing', label: 'Planejamento', enunciado: 'Existe calendário editorial e verba mensal?', opcoes: { A: 'Posta quando dá', B: 'Calendário sem verba', C: 'Verba e calendário OK', D: 'Marketing Data-Driven' }, sugestoes: { A: 'Criar calendário de posts.', B: 'Definir verba para anúncios.', C: 'Medir ROI por canal.', D: 'Escala de tráfego pago.' } },
+  { id: '4.2', areaId: 'marketing', label: 'Assessoria', enunciado: 'Há gestão profissional de redes e anúncios?', opcoes: { A: 'Dono faz tudo', B: 'Freelancer/Sobrinho', C: 'Agência de nicho', D: 'Time Sênior/Agência Full' }, sugestoes: { A: 'Terceirizar marketing digital.', B: 'Subir nível da agência.', C: 'Melhorar criativos.', D: 'Foco em conversão direta.' } },
+  { id: '4.3', areaId: 'marketing', label: 'Branding', enunciado: 'A marca possui padrão visual e tom de voz?', opcoes: { A: 'Sem padrão', B: 'Cores básicas', C: 'Manual de marca ativo', D: 'Branding consolidado' }, sugestoes: { A: 'Criar manual de marca.', B: 'Padronizar materiais.', C: 'Evoluir posicionamento.', D: 'Brand Experience total.' } },
+  { id: '4.4', areaId: 'marketing', label: 'Lead Gen', enunciado: 'Como é o fluxo de captura de leads no digital?', opcoes: { A: 'Nenhum', B: 'Direct Instagram', C: 'Landing Pages/Site', D: 'Funis complexos/CRM' }, sugestoes: { A: 'Criar primeira Landing Page.', B: 'Otimizar site para SEO.', C: 'Automação de e-mail/Zap.', D: 'Escalabilidade de leads.' } },
+  { id: '4.5', areaId: 'marketing', label: 'Endomarketing', enunciado: 'Existe marketing voltado para o time interno?', opcoes: { A: 'Zero', B: 'Avisos básicos', C: 'Ações mensais', D: 'Cultura de marca forte' }, sugestoes: { A: 'Criar newsletter interna.', B: 'Ações de datas comemorativas.', C: 'Fortalecer Employer Brand.', D: 'Embaixadores da marca.' } },
+  { id: '4.6', areaId: 'marketing', label: 'Análise ROI', enunciado: 'Sabe-se quanto cada real investido traz de volta?', opcoes: { A: 'Não faz ideia', B: 'Acha que dá certo', C: 'Mede ROI geral', D: 'Mede ROI por campanha' }, sugestoes: { A: 'Implementar pixels/tracking.', B: 'Relatório mensal de ROI.', C: 'Otimizar Custo por Lead.', D: 'Escalabilidade previsível.' } },
 
-  // 5. Financeiro
-  {
-    id: '5.1', areaId: 'financeiro',
-    enunciado: 'Existe mistura de contas pessoais dos sócios com as da empresa?',
-    opcoes: {
-      A: 'Caixa único. Empresa paga contas da casa do dono (Escola, Mercado).',
-      B: 'Contas separadas, mas transferências frequentes sem registro.',
-      C: 'Separação existe, mas ocorrem exceções eventuais.',
-      D: 'Separação total e auditada (Princípio da Entidade respeitado).'
-    },
-    sugestaoPadrao: 'Eliminar pagamentos pessoais pela conta da empresa e instituir pro-labore fixo.'
-  },
-  {
-    id: '5.2', areaId: 'financeiro',
-    enunciado: 'O salário dos sócios (Pró-Labore) é fixo e definido?',
-    opcoes: {
-      A: 'Retiradas aleatórias conforme "sobra" dinheiro no dia.',
-      B: 'Valor definido "de boca", mas varia conforme a necessidade.',
-      C: 'Pró-labore definido, mas as vezes atrasa ou adianta.',
-      D: 'Pró-labore fixo de mercado pago na data correta + Lucros apurados.'
-    },
-    sugestaoPadrao: 'Formalizar o pró-labore dos sócios e agendar retiradas mensais fixas.'
-  },
-  {
-    id: '5.3', areaId: 'financeiro',
-    enunciado: 'O Contas a Pagar/Receber é conciliado diariamente?',
-    opcoes: {
-      A: 'Controle frouxo, perde-se prazos ou esquece de cobrar.',
-      B: 'Conciliação feita semanalmente ou quando dá tempo.',
-      C: 'Conciliação diária, mas com pequenos furos de centavos.',
-      D: 'Conciliação bancária diária, rigorosa e sem erros.'
-    },
-    sugestaoPadrao: 'Implementar processo rigoroso de conciliação bancária diária no ERP.'
-  },
-  {
-    id: '5.4', areaId: 'financeiro',
-    enunciado: 'Existe previsibilidade de caixa para 30/60/90 dias?',
-    opcoes: {
-      A: 'Vive o dia de hoje ("Vendendo almoço p/ pagar janta").',
-      B: 'Olha apenas as contas da semana seguinte.',
-      C: 'Fluxo de caixa projetado para o mês corrente.',
-      D: 'Fluxo de caixa projetado para 3 meses à frente com cenários.'
-    },
-    sugestaoPadrao: 'Projetar o fluxo de caixa para 90 dias com análise de cenários otimista e pessimista.'
-  },
-  {
-    id: '5.5', areaId: 'financeiro',
-    enunciado: 'Existe processo estruturado de cobrança e inadimplência?',
-    opcoes: {
-      A: 'Cobra apenas quando lembra ou tem medo de cobrar o cliente.',
-      B: 'Cobra via WhatsApp informalmente, sem padrão.',
-      C: 'Régua de cobrança manual (e-mail/ligação).',
-      D: 'Régua de cobrança automatizada, preventiva e ativa.'
-    },
-    sugestaoPadrao: 'Automatizar a régua de cobrança e definir políticas claras de juros e multas.'
-  },
+  // 5. FINANCEIRO (6 Perguntas)
+  { id: '5.1', areaId: 'financeiro', label: 'Plano de Contas', enunciado: 'A estrutura de receitas e despesas é detalhada?', opcoes: { A: 'Caixa único', B: 'Poucas categorias', C: 'Plano de contas completo', D: 'DRE gerencial preciso' }, sugestoes: { A: 'Estruturar plano de contas.', B: 'Categorizar gastos fixos.', C: 'Análise de DRE Mensal.', D: 'Gestão por centros custo.' } },
+  { id: '5.2', areaId: 'financeiro', label: 'Contas a Pagar', enunciado: 'O fluxo de aprovação e pagamento é rigoroso?', opcoes: { A: 'Paga o que vence', B: 'Sem fluxo aprovação', C: 'Processo via sistema', D: 'Tesouraria automatizada' }, sugestoes: { A: 'Criar fluxo de aprovação.', B: 'Agendar pagamentos no ERP.', C: 'Negociar prazos fornecedor.', D: 'Otimizar fluxo de caixa.' } },
+  { id: '5.3', areaId: 'financeiro', label: 'Conciliação Bancária', enunciado: 'O saldo bancário bate com o sistema diariamente?', opcoes: { A: 'Bate nunca', B: 'Conciliação mensal', C: 'Conciliação semanal', D: 'Conciliação diária' }, sugestoes: { A: 'Conciliar saldo diariamente.', B: 'Eliminar diferenças caixa.', C: 'Automatizar importação.', D: 'Rigor 100% de conciliação.' } },
+  { id: '5.4', areaId: 'financeiro', label: 'Contas a Receber', enunciado: 'Há controle de inadimplência e cobrança ativa?', opcoes: { A: 'Não controla', B: 'Cobra quando lembra', C: 'Processo estruturado', D: 'Régua de cobrança auto' }, sugestoes: { A: 'Listar contas em atraso.', B: 'Criar régua de cobrança.', C: 'Reduzir inadimplência.', D: 'Fomento comercial/Antecipa.' } },
+  { id: '5.5', areaId: 'financeiro', label: 'Fluxo de Caixa', enunciado: 'Há projeção futura de entradas e saídas (90 dias)?', opcoes: { A: 'Vê só o hoje', B: 'Projeção 30 dias', C: 'Projeção 90 dias', D: 'Simulação de cenários' }, sugestoes: { A: 'Montar fluxo de caixa.', B: 'Projetar gastos fixos.', C: 'Análise de descasamento.', D: 'Gestão de liquidez.' } },
+  { id: '5.6', areaId: 'financeiro', label: 'Crédito e Cobrança', enunciado: 'Existe análise de crédito antes da venda?', opcoes: { A: 'Vende para todos', B: 'Consulta Serasa básica', C: 'Matriz de crédito', D: 'Seguro de crédito/Score' }, sugestoes: { A: 'Consultar CNPJ antes vender.', B: 'Criar política de crédito.', C: 'Avaliar limites por cliente.', D: 'Monitorar score clientes.' } },
 
-  // 6. Controladoria
-  {
-    id: '6.1', areaId: 'controladoria',
-    enunciado: 'Analisa-se o lucro real (Competência) mensalmente?',
-    opcoes: {
-      A: 'Olha apenas saldo bancário (Caixa). Não sabe se teve lucro econômico.',
-      B: 'DRE existe mas é confuso ou incompleto.',
-      C: 'DRE analisado esporadicamente ou com atraso.',
-      D: 'DRE analisado mensalmente com margens detalhadas (EBITDA).'
-    },
-    sugestaoPadrao: 'Implantar DRE gerencial por competência para análise real da lucratividade do negócio.'
-  },
-  {
-    id: '6.2', areaId: 'controladoria',
-    enunciado: 'Conhece-se a margem de contribuição real de cada produto/serviço?',
-    opcoes: {
-      A: 'Não sabe qual produto dá prejuízo. Vende no volume.',
-      B: 'Sabe a margem média geral, mas não por produto.',
-      C: 'Margem calculada para os principais produtos apenas.',
-      D: 'Margem calculada por SKU/Serviço. Mix otimizado pelo lucro.'
-    },
-    sugestaoPadrao: 'Calcular a margem de contribuição individual por produto e serviço.'
-  },
-  {
-    id: '6.3', areaId: 'controladoria',
-    enunciado: 'Existe teto de gastos definido por departamento (Orçamento)?',
-    opcoes: {
-      A: 'Gasta-se conforme a necessidade aparece (Sem teto).',
-      B: 'Existe uma ideia de limite, mas ninguém controla.',
-      C: 'Orçamento definido, mas não há travamento de gastos.',
-      D: 'Orçamento anual definido e acompanhado (Previsto x Realizado).'
-    },
-    sugestaoPadrao: 'Elaborar orçamento anual (Budget) e monitorar variações mensais.'
-  },
-  {
-    id: '6.4', areaId: 'controladoria',
-    enunciado: 'Existe inventário rotativo para evitar furos de estoque e roubos?',
-    opcoes: {
-      A: 'Estoque nunca bate, não é contado ou é bagunçado.',
-      B: 'Contagem apenas anual (Balanço), com muitas divergências.',
-      C: 'Contagens mensais, mas ainda sobram ajustes.',
-      D: 'Inventários cíclicos (rotativos) e auditoria de processos constantes.'
-    },
-    sugestaoPadrao: 'Implementar inventários rotativos semanais e auditar as baixas de estoque.'
-  },
-  {
-    id: '6.5', areaId: 'controladoria',
-    enunciado: 'Os custos fixos são revisados periodicamente?',
-    opcoes: {
-      A: 'Custos fixos só aumentam, nunca são questionados.',
-      B: 'Revisão apenas em momentos de crise aguda.',
-      C: 'Revisão anual básica de contratos.',
-      D: 'Gestão Matricial de Despesas (GMD) ativa para redução contínua.'
-    },
-    sugestaoPadrao: 'Revisar todos os contratos de custos fixos em busca de eficiência e renegociação.'
-  },
+  // 6. CONTROLADORIA (6 Perguntas)
+  { id: '6.1', areaId: 'controladoria', label: 'Capital de Giro', enunciado: 'Sabe o valor exato necessário para operar?', opcoes: { A: 'Não sabe', B: 'Estimativa básica', C: 'Sabe e monitora', D: 'Otimização ciclo financeiro' }, sugestoes: { A: 'Calcular Capital de Giro.', B: 'Reduzir Prazo Médio Rec.', C: 'Aumentar Prazo Médio Pag.', D: 'Minimizar necessidade giro.' } },
+  { id: '6.2', areaId: 'controladoria', label: 'Ponto de Equilíbrio', enunciado: 'Sabe quanto faturar para não ter prejuízo?', opcoes: { A: 'Não sabe', B: 'Estimativa bruta', C: 'Calculado mensalmente', D: 'Cenários e metas atingíveis' }, sugestoes: { A: 'Calcular Break-Even Point.', B: 'Reduzir custos fixos.', C: 'Melhorar margem bruta.', D: 'Análise de mix de vendas.' } },
+  { id: '6.3', areaId: 'controladoria', label: 'Orçamento', enunciado: 'Existe orçamento anual (Budget) aprovado?', opcoes: { A: 'Não tem', B: 'Previsão informal', C: 'Budget por área', D: 'Budget vs Actual mensal' }, sugestoes: { A: 'Criar orçamento anual.', B: 'Definir teto de gastos.', C: 'Monitorar desvios mensais.', D: 'Ajuste dinâmico (Forecast).' } },
+  { id: '6.4', areaId: 'controladoria', label: 'Gestão de Custos', enunciado: 'Sabe-se o custo exato de cada produto/serviço?', opcoes: { A: 'Estimativa', B: 'Custo direto apenas', C: 'Custo com rateio fixo', D: 'Custeio por atividade/ABC' }, sugestoes: { A: 'Mapear custos diretos.', B: 'Realizar rateio de fixos.', C: 'Otimizar margem unitária.', D: 'Eliminar produtos/serviços ruins.' } },
+  { id: '6.5', areaId: 'controladoria', label: 'Indicadores', enunciado: 'Existem Dashboards de gestão (EBITDA, Liquidez)?', opcoes: { A: 'Zero dados', B: 'Planilha de EBITDA', C: 'Dashboards Mensais', D: 'BI em tempo real' }, sugestoes: { A: 'Definir 5 KPIs vitais.', B: 'Montar Dashboard Mensal.', C: 'Treinar gestão por dados.', D: 'Decisão 100% data-driven.' } },
+  { id: '6.6', areaId: 'controladoria', label: 'Relatórios', enunciado: 'Os sócios recebem relatórios de performance mensal?', opcoes: { A: 'Nunca', B: 'Apenas faturamento', C: 'Relatório DRE/Caixa', D: 'Pack de Gestão Executivo' }, sugestoes: { A: 'Criar rotina de fechamento.', B: 'Apresentar DRE Gerencial.', C: 'Comentar variações Budget.', D: 'Reunião de conselho mensal.' } },
 
-  // 7. Fiscal
-  {
-    id: '7.1', areaId: 'fiscal',
-    enunciado: 'Qual o regime tributário atual da empresa?',
-    opcoes: {
-      A: 'Informal / Não sabe informar (Risco alto).',
-      B: 'Simples Nacional (Evolução natural sem revisão).',
-      C: 'Lucro Presumido (Média complexidade).',
-      D: 'Lucro Real (Alta complexidade e controle rigoroso).'
-    },
-    sugestaoPadrao: 'Realizar planejamento tributário para validar se o regime atual é o mais eficiente.'
-  },
-  {
-    id: '7.2', areaId: 'fiscal',
-    enunciado: 'A classificação fiscal (NCM) está auditada?',
-    opcoes: {
-      A: 'Cadastro de produtos nunca revisado.',
-      B: 'Revisão feita apenas na implantação do sistema.',
-      C: 'Revisão esporádica por amostragem.',
-      D: 'Auditoria de cadastro completa e monitoramento constante.'
-    },
-    sugestaoPadrao: 'Contratar auditoria de cadastro fiscal para evitar multas.'
-  },
-  {
-    id: '7.3', areaId: 'fiscal',
-    enunciado: 'A regularidade fiscal (CNDs) é monitorada mensalmente?',
-    opcoes: {
-      A: 'Descobre dívida só quando bloqueia a conta.',
-      B: 'Pede CND apenas quando precisa de empréstimo.',
-      C: 'Monitoramento trimestral pelo contador.',
-      D: 'Monitoramento preventivo mensal de todas as certidões.'
-    },
-    sugestaoPadrao: 'Implementar check-up fiscal mensal.'
-  },
+  // 7. FISCAL (6 Perguntas)
+  { id: '7.1', areaId: 'fiscal', label: 'Plan. Tributário', enunciado: 'O regime atual é o mais econômico hoje?', opcoes: { A: 'Nunca revisou', B: 'Revisão antiga', C: 'Revisão anual OK', D: 'Estratégia Tributária' }, sugestoes: { A: 'Realizar Planejamento Tributário.', B: 'Simular Lucro Real vs Simples.', C: 'Recuperar créditos impostos.', D: 'Monitorar mudanças de lei.' } },
+  { id: '7.2', areaId: 'fiscal', label: 'Obrigações', enunciado: 'As guias de impostos são pagas sem atraso?', opcoes: { A: 'Muitos atrasos', B: 'Eventualmente atrasa', C: 'Pagamento em dia', D: 'Controle rigoroso CND' }, sugestoes: { A: 'Regularizar impostos.', B: 'Automatizar fluxo tributário.', C: 'Manter CND sempre ativa.', D: 'Zero juros e multas.' } },
+  { id: '7.3', areaId: 'fiscal', label: 'Apuração Fiscal', enunciado: 'Há conferência de notas fiscais vs impostos?', opcoes: { A: 'Não confere', B: 'Conferência manual', C: 'Sistema automatizado', D: 'Auditoria fiscal digital' }, sugestoes: { A: 'Implementar conferência fiscal.', B: 'Treinar faturamento.', C: 'Integrar ERP com Fiscal.', D: 'Compliance fiscal total.' } },
+  { id: '7.4', areaId: 'fiscal', label: 'Recolhimento', enunciado: 'Existe provisão mensal para pagamento de impostos?', opcoes: { A: 'Paga o que vem', B: 'Provisão básica', C: 'Provisionado no caixa', D: 'Conta reserva tributária' }, sugestoes: { A: 'Provisionar guias no sistema.', B: 'Separar dinheiro impostos.', C: 'Gestão de passivo fiscal.', D: 'Otimizar datas de vcto.' } },
+  { id: '7.5', areaId: 'fiscal', label: 'Automação', enunciado: 'A emissão de notas fiscais é automatizada?', opcoes: { A: 'Site da prefeitura', B: 'Emissor básico', C: 'ERP Integrado', D: 'Faturamento em lote auto' }, sugestoes: { A: 'Integrar ERP com Prefeitura/Sefaz.', B: 'Eliminar redigitação manual.', C: 'Automatizar baixa de notas.', D: 'Escalabilidade de faturamento.' } },
+  { id: '7.6', areaId: 'fiscal', label: 'Documentação', enunciado: 'Os arquivos XML e documentos fiscais são guardados?', opcoes: { A: 'Não guarda', B: 'Pasta no computador', C: 'Nuvem organizada', D: 'Repositório fiscal seguro' }, sugestoes: { A: 'Assinar sistema de guarda XML.', B: 'Organizar nuvem fiscal.', C: 'Backup de documentos 5 anos.', D: 'Fácil acesso p/ fiscalização.' } },
 
-  // ... (Outras perguntas mantidas conforme o CSV anterior)
-  // 10. Pessoas (RH)
-  {
-    id: '10.1', areaId: 'pessoas',
-    enunciado: 'Qual a estrutura atual do departamento de pessoas?',
-    opcoes: {
-      A: 'Não tem (Dono faz tudo ou é delegado sem processo).',
-      B: 'Apenas DP (Focado em burocracia/folha).',
-      C: 'RH Generalista (Recrutamento + DP).',
-      D: 'RH Estratégico (DHO, Clima, Treinamento e Cultura).'
-    },
-    sugestaoPadrao: 'Estruturar processos básicos de RH para suporte ao crescimento.'
-  },
-  {
-    id: '10.2', areaId: 'pessoas',
-    enunciado: 'Existe um calendário de treinamentos técnicos e comportamentais?',
-    opcoes: {
-      A: 'Nenhum treinamento realizado.',
-      B: 'Treinamentos esporádicos quando surge erro grave.',
-      C: 'Calendário técnico existe, mas sem foco comportamental.',
-      D: 'Calendário anual de treinamentos (Soft e Hard Skills) executado.'
-    },
-    sugestaoPadrao: 'Implementar matriz de treinamento baseada nos GAPs da equipe.'
-  },
-  
-  // Re-inserindo as demais do CSV original (resumo)
-  {
-    id: '10.3', areaId: 'pessoas',
-    enunciado: 'O processo seletivo avalia técnica e perfil comportamental?',
-    opcoes: {
-      A: 'Contrata na urgência ("o primeiro que aceitar").',
-      B: 'Entrevista focada apenas na experiência técnica (CV).',
-      C: 'Aplica-se teste técnico e entrevista com RH.',
-      D: 'Processo com testes, análise de perfil (DISC) e validação cultural.'
-    },
-    sugestaoPadrao: 'Utilizar ferramentas de análise comportamental (DISC).'
-  }
-  // (Omitindo repetições para brevidade, mas as 60 originais + as novas estariam aqui no código real)
+  // 8. CONTÁBIL (6 Perguntas)
+  { id: '8.1', areaId: 'contabil', label: 'Balancete', enunciado: 'A contabilidade é utilizada para gestão ou apenas impostos?', opcoes: { A: 'Só impostos', B: 'Recebe atrasado', C: 'Balancete mensal OK', D: 'Contabilidade Consultiva' }, sugestoes: { A: 'Migrar para Contab Consultiva.', B: 'Exigir balancetes mensais.', C: 'Analisar índices liquidez.', D: 'Decisão baseada no balanço.' } },
+  { id: '8.2', areaId: 'contabil', label: 'Integração', enunciado: 'O ERP envia dados direto para o contador?', opcoes: { A: 'Envia papel/PDF', B: 'Importação manual', C: 'Integração via API', D: 'Ecossistema unificado' }, sugestoes: { A: 'Automatizar envio de dados.', B: 'Configurar exportação ERP.', C: 'Reduzir erros de digitação.', D: 'Contabilidade em tempo real.' } },
+  { id: '8.3', areaId: 'contabil', label: 'Imobilizado', enunciado: 'Existe controle de depreciação e ativos fixos?', opcoes: { A: 'Não tem', B: 'Cadastro informal', C: 'Controle no sistema', D: 'Inventário auditado' }, sugestoes: { A: 'Criar cadastro de ativos.', B: 'Calcular depreciação mensal.', C: 'Etiquetar bens da empresa.', D: 'Gestão patrimonial profissional.' } },
+  { id: '8.4', areaId: 'contabil', label: 'Fechamento', enunciado: 'Qual o tempo médio para o fechamento do balanço?', opcoes: { A: 'Anos de atraso', B: 'Meses de atraso', C: '30 dias após mês', D: '10 dias úteis' }, sugestoes: { A: 'Reduzir prazo de fechamento.', B: 'Melhorar fluxo de documentos.', C: 'Reunião mensal resultados.', D: 'Fechamento Fast Close.' } },
+  { id: '8.5', areaId: 'contabil', label: 'Auditoria', enunciado: 'Os números contábeis são revisados ou auditados?', opcoes: { A: 'Nunca', B: 'Revisão interna', C: 'Revisão externa', D: 'Auditado Big Four' }, sugestoes: { A: 'Revisar lançamentos críticos.', B: 'Implementar auditoria interna.', C: 'Certificar balanço anual.', D: 'Transparência societária total.' } },
+  { id: '8.6', areaId: 'contabil', label: 'Planejamento', enunciado: 'Há conversa estratégica com o contador mensalmente?', opcoes: { A: 'Nunca', B: 'Raramente', C: 'Mensalmente', D: 'Parceria estratégica' }, sugestoes: { A: 'Agendar call mensal contador.', B: 'Discutir economia tributária.', C: 'Alinhar distribuição lucros.', D: 'Contador como conselheiro.' } },
+
+  // 9. PESSOAS / RH (6 Perguntas)
+  { id: '9.1', areaId: 'pessoas', label: 'Cargos e Salários', enunciado: 'Existe plano de carreira e descrição de cargos?', opcoes: { A: 'Salários aleatórios', B: 'Descrição básica', C: 'PCCS estruturado', D: 'Remuneração estratégica' }, sugestoes: { A: 'Desenhar organograma atual.', B: 'Descrever funções chave.', C: 'Criar Plano de Cargos.', D: 'Manter retenção de talentos.' } },
+  { id: '9.2', areaId: 'pessoas', label: 'Recrutamento', enunciado: 'Existe um processo padrão para contratar novas pessoas?', opcoes: { A: 'Contrata no desespero', B: 'Entrevista simples', C: 'Teste técnico/Perfil', D: 'Hunting e Fit Cultural' }, sugestoes: { A: 'Criar roteiro de entrevista.', B: 'Implementar testes de perfil.', C: 'Melhorar Onboarding.', D: 'Processo seletivo de elite.' } },
+  { id: '9.3', areaId: 'pessoas', label: 'Avaliação', enunciado: 'Como é avaliado o desempenho dos colaboradores?', opcoes: { A: 'Não avalia', B: 'Avaliação informal', C: 'Avaliação 90/180/360', D: 'Foco em metas/competência' }, sugestoes: { A: 'Implementar 1:1s mensais.', B: 'Criar matriz de competência.', C: 'Avaliar entrega vs meta.', D: 'Ciclo de alta performance.' } },
+  { id: '9.4', areaId: 'pessoas', label: 'Treinamento', enunciado: 'Existe verba e cronograma de treinamento anual?', opcoes: { A: 'Zero', B: 'Treina se alguém pede', C: 'Plano de treinamento', D: 'Universidade Corporativa' }, sugestoes: { A: 'Identificar gaps técnicos.', B: 'Criar trilhas de aprendizado.', C: 'Investir em soft skills.', D: 'Lideranças em evolução.' } },
+  { id: '9.5', areaId: 'pessoas', label: 'Benefícios', enunciado: 'Os benefícios são atrativos perante o mercado?', opcoes: { A: 'Só o obrigatório', B: 'Cesta básica/Vale', C: 'Benefícios flexíveis', D: 'Pacote de retenção elite' }, sugestoes: { A: 'Pesquisar benefícios do setor.', B: 'Adicionar benefícios simples.', C: 'Plano de saúde/Seguro.', D: 'Gamificação e prêmios.' } },
+  { id: '9.6', areaId: 'pessoas', label: 'Trabalhista', enunciado: 'Existe conformidade com as leis e riscos baixos?', opcoes: { A: 'Muitos riscos', B: 'Alguns passivos', C: 'Conformidade OK', D: 'Zero passivo oculto' }, sugestoes: { A: 'Auditoria trabalhista.', B: 'Ajustar horas extras/ponto.', C: 'Regularizar contratos PJ.', D: 'Segurança jurídica total.' } },
+
+  // 10. CULTURA & CLIMA (6 Perguntas)
+  { id: '10.1', areaId: 'cultura', label: 'Valores', enunciado: 'Os valores são praticados no dia a dia da empresa?', opcoes: { A: 'Não existem', B: 'Só no papel/site', C: 'Time conhece/segue', D: 'Cultura inegociável' }, sugestoes: { A: 'Definir os 5 valores DNA.', B: 'Criar rituais de cultura.', C: 'Avaliar por valores.', D: 'Liderança pelo exemplo.' } },
+  { id: '10.2', areaId: 'cultura', label: 'Comunicação', enunciado: 'Como é o fluxo de informações internas?', opcoes: { A: 'Rádio corredor', B: 'Grupos de WhatsApp', C: 'Canais Oficiais/Slack', D: 'Transparência total' }, sugestoes: { A: 'Formalizar comunicação.', B: 'Centralizar avisos.', C: 'Criar reunião All-Hands.', D: 'Cultura de transparência.' } },
+  { id: '10.3', areaId: 'cultura', label: 'Feedback', enunciado: 'Existe uma cultura de feedback constante e seguro?', opcoes: { A: 'Feedback punitivo', B: 'Apenas anual', C: 'Feedbacks mensais', D: 'Feedback 360 imediato' }, sugestoes: { A: 'Treinar líderes em feedback.', B: 'Instituir rotina de 1:1.', C: 'Criar canal de sugestões.', D: 'Segurança psicológica total.' } },
+  { id: '10.4', areaId: 'cultura', label: 'Turnover', enunciado: 'Qual o nível de rotatividade da equipe?', opcoes: { A: 'Muito alto/Crítico', B: 'Alto em áreas chave', C: 'Baixo/Normal', D: 'Retenção exemplar' }, sugestoes: { A: 'Pesquisar causa demissões.', B: 'Melhorar clima interno.', C: 'Entrevistas de desligamento.', D: 'Plano de sucessão ativo.' } },
+  { id: '10.5', areaId: 'cultura', label: 'Liderança', enunciado: 'Os líderes são inspiradores ou autoritários?', opcoes: { A: 'Autocráticos', B: 'Chefes de tarefas', C: 'Líderes em treinamento', D: 'Líderes coach/mentores' }, sugestoes: { A: 'Treinamento de liderança.', B: 'Delegar com autonomia.', C: 'Monitorar clima da área.', D: 'Formação de novos líderes.' } },
+  { id: '10.6', areaId: 'cultura', label: 'Ambiente', enunciado: 'A estrutura física/remota promove produtividade?', opcoes: { A: 'Tóxico/Desorganizado', B: 'Básico/Funcional', C: 'Confortável/Inspirador', D: 'Ambiente de alto nível' }, sugestoes: { A: 'Melhorar ergonomia/limpeza.', B: 'Organizar espaços comuns.', C: 'Investir em ferramentas rem.', D: 'Cultura de bem-estar.' } },
+
+  // 11. PLANEJAMENTO (6 Perguntas)
+  { id: '11.1', areaId: 'planejamento', label: 'Estratégia', enunciado: 'Existe planejamento escrito para 12-36 meses?', opcoes: { A: 'Sem plano', B: 'Ideias soltas', C: 'Plano escrito parado', D: 'Gestão estratégica viva' }, sugestoes: { A: 'Realizar Planejamento Estrat.', B: 'Definir Visão 2026.', C: 'Reunião estratégica semestral.', D: 'Expansão planejada e medida.' } },
+  { id: '11.2', areaId: 'planejamento', label: 'Metas / OKRs', enunciado: 'Como as metas são desdobradas para o time?', opcoes: { A: 'Não tem metas', B: 'Só faturamento bruto', C: 'Metas por área', D: 'OKRs integrados' }, sugestoes: { A: 'Definir 3 metas do ano.', B: 'Implementar OKRs.', C: 'Acompanhar metas mensais.', D: 'Meritocracia por metas.' } },
+  { id: '11.3', areaId: 'planejamento', label: 'Mercado', enunciado: 'Há monitoramento da concorrência e tendências?', opcoes: { A: 'Olha só pra dentro', B: 'Olha o preço do outro', C: 'Análise SWOT anual', D: 'Benchmark constante' }, sugestoes: { A: 'Fazer análise de concorrentes.', B: 'Mapear forças e fraquezas.', C: 'Identificar oportunidades.', D: 'Inovação antecipada.' } },
+  { id: '11.4', areaId: 'planejamento', label: 'Reserva', enunciado: 'Existe reserva para investimentos ou crises?', opcoes: { A: 'Vive no limite', B: 'Reserva 1 mês', C: 'Reserva 3-6 meses', D: 'Reserva 12 meses+' }, sugestoes: { A: 'Criar reserva de emergência.', B: 'Fundo de investimento expans.', C: 'Melhorar margem líquida.', D: 'Independência financeira PJ.' } },
+  { id: '11.5', areaId: 'planejamento', label: 'Sucessão', enunciado: 'A empresa funciona sem o dono presente?', opcoes: { A: 'Dono é a operação', B: 'Sabe pouco sem dono', C: 'Diretoria autônoma', D: 'Totalmente delegada' }, sugestoes: { A: 'Treinar braço direito.', B: 'Delegar tarefas rotina.', C: 'Criar plano de sucessão.', D: 'Conselho de administração.' } },
+  { id: '11.6', areaId: 'planejamento', label: 'Inovação', enunciado: 'Novos produtos/serviços são lançados anualmente?', opcoes: { A: 'Sempre o mesmo', B: 'Melhorias pontuais', C: 'Ciclo de inovação', D: 'P&D Estruturado' }, sugestoes: { A: 'Ouvir feedbacks de clientes.', B: 'Testar novos formatos.', C: 'Pipeline de novos produtos.', D: 'Liderança de mercado.' } },
+
+  // 12. PROCESSOS (6 Perguntas)
+  { id: '12.1', areaId: 'processos', label: 'Mapeamento', enunciado: 'Os processos críticos estão mapeados e acessíveis?', opcoes: { A: 'Nada escrito', B: 'Fluxogramas básicos', C: 'Manual PDF/Wiki', D: 'Processos Digitais/Auto' }, sugestoes: { A: 'Mapear os 3 processos vitais.', B: 'Criar Wiki no Notion/ERP.', C: 'Revisar anualmente.', D: 'Otimização contínua.' } },
+  { id: '12.2', areaId: 'processos', label: 'Checklists', enunciado: 'A operação usa checklists para garantir qualidade?', opcoes: { A: 'Olhômetro', B: 'Checklist verbal', C: 'Checklist papel/Excel', D: 'Checklist no sistema' }, sugestoes: { A: 'Criar checklists de entrega.', B: 'Implementar rotina check.', C: 'Auditar checklists.', D: 'Zero erro operacional.' } },
+  { id: '12.3', areaId: 'processos', label: 'Lead Time', enunciado: 'Sabe-se o tempo médio de cada etapa do processo?', opcoes: { A: 'Não mede', B: 'Sabe o tempo total', C: 'Mede etapas críticas', D: 'Gargalos monitorados' }, sugestoes: { A: 'Cronometrar fluxo principal.', B: 'Reduzir desperdício tempo.', C: 'Eliminar gargalos.', D: 'Eficiência operacional máxima.' } },
+  { id: '12.4', label: 'Padrão Visual', areaId: 'processos', enunciado: 'Existe padrão de organização (5S) na empresa?', opcoes: { A: 'Bagunça total', B: 'Limpeza básica', C: 'Organização funcional', D: 'Padrão de excelência' }, sugestoes: { A: 'Implementar programa 5S.', B: 'Organizar arquivos/estoque.', C: 'Padronizar postos trabalho.', D: 'Cultura de organização.' } },
+  { id: '12.5', label: 'SOPs', areaId: 'processos', enunciado: 'Existem Procedimentos Operacionais Padrão (POPs)?', opcoes: { A: 'Não tem', B: 'Alguns antigos', C: 'POPs atualizados', D: 'POPs em vídeo/interat.' }, sugestoes: { A: 'Escrever primeiros POPs.', B: 'Atualizar manuais antigos.', C: 'Treinar time nos POPs.', D: 'Base de conhecimento elite.' } },
+  { id: '12.6', label: 'Retrabalho', areaId: 'processos', enunciado: 'Como é controlado o nível de erro e retrabalho?', opcoes: { A: 'Não controla', B: 'Conserta e esquece', C: 'Mede retrabalho', D: 'Causa raiz atacada' }, sugestoes: { A: 'Começar a medir erros.', B: 'Analisar causa dos erros.', C: 'Treinar p/ evitar falhas.', D: 'Qualidade Total (TQM).' } }
 ];
 
 export const SCORE_MAP = {

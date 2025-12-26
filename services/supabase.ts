@@ -7,21 +7,48 @@ const SUPABASE_ANON_KEY = 'sb_publishable_9Cr5afNf0_AU7no-J0ok8Q_ahr3MY77';
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-export const saveDiagnostic = async (diagnosticData: any) => {
+export const upsertClient = async (clientInfo: any) => {
   const { data: client, error: clientError } = await supabase
     .from('clients')
     .upsert({
-      cnpj: diagnosticData.clientInfo.cnpj,
-      nome_fantasia: diagnosticData.clientInfo.nomeFantasia,
-      razao_social: diagnosticData.clientInfo.razaoSocial,
-      email: diagnosticData.clientInfo.email,
-      whatsapp: diagnosticData.clientInfo.whatsapp,
-      responsavel: diagnosticData.clientInfo.responsavel,
+      cnpj: clientInfo.cnpj,
+      nome_fantasia: clientInfo.nomeFantasia,
+      razao_social: clientInfo.razaoSocial,
+      email: clientInfo.email || '',
+      whatsapp: clientInfo.whatsapp || '',
+      responsavel: clientInfo.responsavel,
+      logradouro: clientInfo.logradouro || null,
+      numero: clientInfo.numero || null,
+      bairro: clientInfo.bairro || null,
+      cidade: clientInfo.cidade || null,
+      uf: clientInfo.uf || null,
+      cep: clientInfo.cep || null,
+      telefone_fixo: clientInfo.telefoneFixo || null,
+      site: clientInfo.site || null,
+      instagram: clientInfo.instagram || null,
+      linkedin: clientInfo.linkedin || null,
+      data_fundacao: clientInfo.dataFundacao || null,
+      inscricao_estadual: clientInfo.inscricaoEstadual || null,
+      faturamento_mensal: clientInfo.faturamentoMensal || null,
+      faturamento_anual: clientInfo.faturamentoAnual || null,
+      quantidade_funcionarios: clientInfo.quantidadeFuncionarios || null,
+      segmento: clientInfo.segmento || null,
+      nicho: clientInfo.nicho || null,
+      estrutura_organizacional: clientInfo.estruturaOrganizacional || null,
       updated_at: new Date().toISOString(),
     }, { onConflict: 'cnpj' })
     .select()
     .single();
 
+  if (clientError) {
+    console.error("Erro ao salvar cliente:", clientError);
+    throw new Error(`Erro ao salvar cliente: ${clientError.message}`);
+  }
+  return client;
+};
+
+export const saveDiagnostic = async (diagnosticData: any) => {
+  const client = await upsertClient(diagnosticData.clientInfo);
   const { data, error } = await supabase
     .from('diagnostics')
     .upsert({
@@ -33,15 +60,35 @@ export const saveDiagnostic = async (diagnosticData: any) => {
       updated_at: new Date().toISOString(),
     }, { onConflict: 'id' });
 
-  if (error) throw new Error(`[${error.code}] ${error.message}`);
+  if (error) {
+    console.error("Erro ao salvar diagnóstico:", error);
+    throw new Error(`[${error.code}] ${error.message}`);
+  }
   return data;
 };
 
-export const getDiagnostics = async () => {
+export const updateLeadStatus = async (leadId: string, newStatus: string) => {
   const { data, error } = await supabase
+    .from('leads')
+    .update({ status: newStatus })
+    .eq('id', leadId)
+    .select();
+  
+  if (error) throw error;
+  return data;
+};
+
+export const getDiagnostics = async (clientId?: string) => {
+  let query = supabase
     .from('diagnostics')
     .select('*, clients(*)')
     .order('updated_at', { ascending: false });
+  
+  if (clientId) {
+    query = query.eq('client_id', clientId);
+  }
+    
+  const { data, error } = await query;
   return { data: data || [], error };
 };
 
